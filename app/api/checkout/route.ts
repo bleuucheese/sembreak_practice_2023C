@@ -89,7 +89,8 @@ export async function POST(req: Request) {
         userId: user?.id,
       },
     });
-    return NextResponse.json(session.url);
+    const url = session.url
+    return NextResponse.json(url);
   } catch (error) {
     console.error(error);
     return {
