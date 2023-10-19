@@ -15,7 +15,8 @@ const corsHeader = {
 export async function OPTIONS() {
   return NextResponse.json({}, { headers: corsHeader });
 }
-export async function POST(req: Request) {
+
+export async function POST(req: Request): Promise<NextResponse> { // Ensure the return type is Promise<NextResponse>
   const body = await req.json();
   const { allIdsAndQuantities } = body;
   console.log(allIdsAndQuantities);
@@ -89,13 +90,10 @@ export async function POST(req: Request) {
         userId: user?.id,
       },
     });
-    const url = session.url
-    return NextResponse.json(url);
+    const url = session.url;
+    return new NextResponse(JSON.stringify(url), { status: 200 }); // Return a valid NextResponse
   } catch (error) {
     console.error(error);
-    return {
-      status: 500,
-      body: { error: "An error occurred during payment" },
-    };
+    return new NextResponse(JSON.stringify({ error: "An error occurred during payment" }), { status: 500 }); // Return a valid NextResponse for errors
   }
 }
