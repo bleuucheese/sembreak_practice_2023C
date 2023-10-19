@@ -18,7 +18,7 @@ async function MyProductPage({}: Props) {
       <div>MyProductPage</div>
       <div className="flex items-center flex-wrap p-3 gap-3">
         {products.map((product) => (
-          <ProductList userId={currentUser?.id as string} product={product} />
+          <ProductList userId={currentUser?.id as string} product={product} key={product.id} />
         ))}
       </div>
     </>

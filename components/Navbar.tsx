@@ -21,7 +21,7 @@ async function Navbar({}: Props) {
             alt="Logo"
             width={50}
             height={75}
-            className="w-15 h15"
+            className="w-15 h-15"
           />
           <p className="font-semibold text-2xl">JOJO</p>
         </Link>
