@@ -8,7 +8,7 @@ export async function PATCH(req: Request) {
   const user = await getCurrentUser();
 
   if (!user) {
-    return new NextResponse("Unauthenticated", { status: 400 });
+   return NextResponse.error();
   }
 
   const newProduct = await prisma.product.update({
@@ -17,7 +17,7 @@ export async function PATCH(req: Request) {
     },
     data: {
       cart: {
-        push: user.cartId,
+        push: user.cartId ? user.cartId : undefined,
       },
     },
   });
