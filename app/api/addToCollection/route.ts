@@ -17,7 +17,7 @@ export async function PATCH(req: Request) {
     },
     data: {
       collection: {
-        push: user.collectionId,
+        push: user.collectionId ? [user.collectionId] : undefined,
       },
     },
   });
