@@ -29,7 +29,6 @@ export async function POST(request: Request) {
         "https://cdn.vox-cdn.com/thumbor/4E98u_RfYxa8pkRK79CyPClFABY=/0x0:1147x647/1200x800/filters:focal(483x233:665x415)/cdn.vox-cdn.com/uploads/chorus_image/image/70742090/Jotaro.0.jpeg",
       collectionId: uuidv4(),
       cartId: uuidv4(),
-
     },
   });
 

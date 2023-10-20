@@ -4,7 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcrypt";
 import prisma from "@/app/db";
-
+const adapter = PrismaAdapter(prisma);
 const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -55,6 +55,7 @@ const authOptions: NextAuthOptions = {
     error: "/",
     signIn: "/",
     signOut: "/",
+    newUser: "/createIds",
   },
 };
 

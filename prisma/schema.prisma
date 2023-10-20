@@ -50,8 +50,8 @@ model User {
   accounts       Account[]
   sessions       Session[]
   products       Product[]
-  collectionId   String    @unique
-  cartId         String    @unique
+  collectionId   String?    @unique
+  cartId         String?   @unique
   orderList      Order[]
 
   @@map("users")
